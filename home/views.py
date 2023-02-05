@@ -41,7 +41,7 @@ def contacts(request):
         desc = request.POST['desc']
         mydata = contact(email=email, name=name, desc=desc)
         mydata.save()
-        # comment
+        
     return render(request, "fk-contact.html")
 
 def details(request, id):
