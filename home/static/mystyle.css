@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+/* NAVBAR starts************* */
+nav{
+    /* position: sticky; */
+    background: #2874f0;
+    top: 0;
+    display: flex;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width: 120px;
+    padding: 0 20px;
+    height: 22px;
+
+}
+nav ul{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    
+}
+nav ul li {
+    list-style: none;
+    padding: 0 20px;
+    
+}
+nav ul li  a {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    text-decoration: none;
+}
+nav ul li  a:hover {
+    font-weight: bolder;
+    color: white;
+}
+
+.searchForm{
+    display: flex;
+}
+.searchForm .search{
+    display: flex;
+    align-items: center;
+    margin: 0 80px;
+}
+.searchForm .search input{
+    width: 31vw;
+    height: 30px;
+    padding: 0 7px;
+    border-radius: 3px;
+    border: 1px solid #2874f0;
+    font-size: small;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+.searchForm .sIcon{
+    display: flex;
+    align-items: center;
+    margin: 0 0 -3px -102px;
+}
+.searchBtn{
+    border: none;
+    background: transparent;
+}
+.searchForm .sIcon span{
+    position: absolute;
+    
+}
+.searchForm .sIcon ion-icon {
+    color: #2874f0;
+}
+.log{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 30px;
+}
+.btnn{
+    margin: 12px 7px 0 48px;
+    width: 90px;
+    height: 28px;
+    color: #2874f0;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+    border-radius: 2px;
+    border: 1px solid #2874f0;
+    cursor: pointer;
+}
+.more{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 16px 0 0 48px;
+}
+.more ion-icon {
+    color: white;
+    margin: 3px 0 0 8px;
+}
+.mycart{
+    display: flex;
+    margin: 9px 0 0 48px;
+    flex-direction: row;
+    justify-content: center;
+}
+.mycart ion-icon {
+    color: white;
+  }
+.mycart a{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none; 
+}
+.carttext{
+    margin: 4px 2px;
+}
+/* NAVBAR ends************* */
+/* MAIN BODY  STARTS***************** */
+.carousel img {
+    display: block;
+    height: 400px;
+    width: 80%;
+    margin: 0px 60px;
+  }
+.container{
+    min-height: calc(100vh - 100px);
+    position: relative;
+}
+.card img{
+    width: 180px;
+    height: 180px;
+    margin: 0px auto;
+}
+/* MAIN BODY ENDS***************** */
+#foot{
+    background-color: #2874f0;
+    color: white;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

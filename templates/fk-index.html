@@ -1,0 +1,73 @@
+{% extends 'fk_base.html' %}
+{% block title %}Flipkart | Home{% endblock title %}
+{% block css %}
+.card img:hover{
+   width: 190px;
+} 
+
+{% endblock css %}
+{% block body %}
+
+<div class="container mt-3" style="min-height: calc(90vh - 100px);">
+    <div class="carousel" data-flickity='{"wrapAround": true}'>
+        {% for product in allproduct %}
+        <img src="/media/{{product.image}}" alt="Product Image" />
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container">
+    <hr class="my-2">
+    <h2 class="my-2">Deals of the day</h2>
+    <div class="row">
+        {% for product in allproduct %}
+        <div class="col-lg-4 my-2" style="width: 25%;">
+            <div class="box-element product">
+                <div class="card" style="width: 15rem; margin: 0px 10px;">
+                    {% load static %}
+                    <img src="/media/{{product.image}}" class="card-img-top" alt="...">
+                    <div class="card-body"  style="padding: 0.3rem 1rem;" >
+                        <h5 class="card-title mb-0">{{product.name}}</h5>
+                        <p class="card-text my-1" style="color: rgb(159, 163, 160);">{{product.catagory}}</p>
+                        <p class="card-text my-1" style="color: rgb(19, 199, 64);">From ₹{{product.price}}</p>
+                        <div class="d-flex">
+                            <span id="divpr{{product.id}}" class="divpr">
+
+                                <button id="pr{{product.id}}" class="btn btn-primary cart">Add to cart</button>
+                            </span>
+                            <a href="/details/{{product.id}}"><button id="qv{{product.id}}" class="btn btn-primary mx-2">Details</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div> 
+{% endblock body %}
+{% block script %}
+<script>
+    if(localStorage.getItem('cart') == null){
+        let cart = {};
+        document.getElementById('cart').innerHTML = '0';
+    }
+    else{
+        cart = JSON.parse(localStorage.getItem('cart'))
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    }
+    $('.cart').click(function() {
+        window.location.reload(true)
+        let idstr = this.id.toString()
+        if(cart[idstr] != undefined){
+            cart[idstr] = cart[idstr] + 1;
+        }
+        else{
+            cart[idstr] = 1;
+        }
+        localStorage.setItem('cart', JSON.stringify(cart))
+        
+    });
+</script>
+
+{% endblock script %}
+ 

@@ -1,0 +1,93 @@
+{% extends 'fk_base.html' %}
+{% block title %}Flipkart | Contact{% endblock title %}
+{% block css %}
+.container-fluid{
+    min-height: calc(100vh - 100px);
+    position: relative;
+    {% load static %}
+    background-image: url("{% static 'bg.jpg' %}");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-fluid::before
+{
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2874f0;
+    opacity: 0.8;
+}
+.form{
+    position: relative;
+    width: 650px;
+    height: 400px;
+    background-color: transparent;
+    border: 1px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 5px #132e61;
+    padding: 5px;
+}
+.form h3, h5{
+    color: white;
+}
+.form ::placeholder{
+    color: white;
+
+}
+textarea{
+    border-radius: 20px;
+    padding: 10px;
+    width: 80%;
+    margin: 10px 64px;
+    box-shadow: 0px 0px 15px 3px #122549;
+    background-color: transparent;
+    border: 1px;
+    color: white;
+    resize: none;
+    outline: none;
+}
+.details{   
+    width: 500px;
+    height: 34px;
+    margin: 10px 70px;
+    border: 1px;
+    border-radius: 20px;
+    color: white;
+    padding-left: 10px;
+    outline: none;
+    box-shadow: 0px 0px 15px 3px #0a1f47;
+    background-color: transparent;
+}
+.submit{
+    margin: 0px 42%;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    color: #2874f0;
+    border: none;
+    box-shadow: 0px 0px 10px 2px #06193d;
+    background-color: transparent;
+    color: white;
+}
+{% endblock css %}
+{% block body %}
+<div class="container-fluid px-0 m-auto">
+    <div class="form">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h3 class="text-center">Contact us</h3>
+            <h5 class="text-center">Write us your valuable feedback!</h5>
+            <input type="email"  class="details" placeholder="Email" name="email">
+            <input type="text" class="details" placeholder="Name" name="name">
+            <textarea name="desc" id="" cols="50" rows="5" placeholder="Write us about your query here!"></textarea>
+            <input type="Submit" value="Submit" class="submit">
+        </form>
+    </div>
+    
+</div>{% endblock body %}

@@ -1,0 +1,56 @@
+{% extends 'fk_base.html' %}
+{% block title %}Flipkart | Detailed product{% endblock title %}
+{% block css %}
+.container{
+    min-height: calc(100vh - 100px)
+}
+
+{% endblock css %}
+{% block body %}
+
+<div class="container m-auto">
+    <div class="card mb-3 mt-3 mx-auto" style="max-width: 540px;  border: 1px solid #d6e6ff;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="/media/{{product.image}}" class="img-fluid rounded-start m-3" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body mx-3">
+              <h5 class="card-title">{{product.name}}</h5>
+              <p class="card-text mb-1">{{product.catagory}}</p>
+              <p class="card-text mb-1">{{product.desc}}</p>
+              <p class="card-text mb-3"><b style="color: rgb(19, 199, 64);">₹{{product.price}}</b></p>
+              <button id="pr{{product.id}}" class="btn btn-primary cart mx-2">Add to cart</button>
+              <a href="/mycart"><button id="" class="btn btn-primary">Buy now</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+</div> 
+{% endblock body %}
+{% block script %}
+<script>
+  if(localStorage.getItem('cart') == null){
+      let cart = {};
+      document.getElementById('cart').innerHTML = '0';
+  }
+  else{
+      cart = JSON.parse(localStorage.getItem('cart'))
+      document.getElementById('cart').innerHTML = Object.keys(cart).length;
+  }
+  $('.cart').click(function() {
+      window.location.reload(true)
+      let idstr = this.id.toString()
+      if(cart[idstr] != undefined){
+          cart[idstr] = cart[idstr] + 1;
+      }
+      else{
+          cart[idstr] = 1;
+      }
+      localStorage.setItem('cart', JSON.stringify(cart))
+      
+  });
+</script>
+
+
+{% endblock script %}

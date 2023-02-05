@@ -1,0 +1,102 @@
+{% extends 'fk_base.html' %}
+{% block title %}Flipkart | Mycart{% endblock title %}
+{% block css %}
+.container{
+    min-height: calc(100vh - 100px);
+    display: flex;
+}
+.card{
+    height: 250px;
+} 
+.col-md-4 img{
+    width: 90%;
+    height: 70%;
+}
+{% endblock css %}
+{% block body %}
+<div class="container">
+    {% comment %} <div class="product mx-auto">
+        <div class="row my-3">
+            <div class="card mb-3" style="max-width: 700px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        {% load static %}
+                        <img src="{% static 'bg.jpg' %}" class="img-fluid rounded-start m-2" alt="...">
+                        <span><button>-</button>(0)<button>+</button></span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Product Name</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural
+                                lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="col-md-12">
+                        <a href="/index" class="btn btn-primary" style="margin: 0px 5px 0px 55%;">Continue shopping</a>
+                        <a href="#" class="btn btn-primary bg-danger">Place Order</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div> {% endcomment %}
+         <h2 class="my-3">This page is under construction! ☹</h2> 
+    </div>
+    {% comment %} <div class="price mx-auto">
+        <ul class="list-group my-3" style="width: 22rem;">
+            <li class="list-group-item d-flex justify-content-between align-items-start" style="background-color: #bed7ff; height: 50px;">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Pricing</div>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start" style="height: 50px;">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Price</div>
+                </div>
+                <span class="">00</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start" style="height: 50px;">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Delivery charges</div>
+                </div>
+                <span class=""><b style="color: rgb(19, 199, 64);">Free</b></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start" style="height: 50px;">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Total amount</div>
+                </div>
+                <span class="">00</span>
+            </li>
+        </ul>
+    </div> {% endcomment %}
+</div>
+
+{% endblock body %}
+{% block script %}
+<script>
+    if(localStorage.getItem('cart') == null){
+        let cart = {};
+        document.getElementById('cart').innerHTML = '0';
+    }
+    else{
+        cart = JSON.parse(localStorage.getItem('cart'))
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    }
+    $('.cart').click(function() {
+        window.location.reload(true)
+        let idstr = this.id.toString()
+        if(cart[idstr] != undefined){
+            cart[idstr] = cart[idstr] + 1;
+        }
+        else{
+            cart[idstr] = 1;
+        }
+        localStorage.setItem('cart', JSON.stringify(cart))
+        
+    });
+
+</script>
+{% endblock script %}

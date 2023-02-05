@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'signup_style.css' %}">
+    <title>Flipkart | Signup</title>
+</head>
+<body>
+    <div class="container">
+        <div class="img">
+            <h3>Signup</h3>
+            <h5>We do not share your personal details with anyone.</h5>
+            {% load static %}
+            <img src="{% static 'fk2.jpg' %}" alt="">
+        </div>
+        <div class="form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <h3>User Registration</h3>
+                <h5>Looks like you are new to Flipkart!</h5>
+                <input type="number"  class="details" placeholder="Mobile no." name="number" required>
+                <input type="email"  class="details" placeholder="Email" name="email" required>
+                <input type="text"  class="details" placeholder="First name" name="firstname" required>
+                <input type="text"  class="details" placeholder="Last name" name="lastname" required>
+                <input type="password"  class="details" placeholder="Password" name="password" required>
+                <input type="submit" value="SIGNUP" class="submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
