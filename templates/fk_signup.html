@@ -17,6 +17,13 @@
             <img src="{% static 'fk2.jpg' %}" alt="">
         </div>
         <div class="form">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
             <form action="" method="POST">
                 {% csrf_token %}
                 <h3>User Registration</h3>

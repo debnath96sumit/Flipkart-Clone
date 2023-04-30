@@ -15,11 +15,18 @@
             <img src="{% static 'fk1.jpg' %}" alt="">
         </div>
         <div class="form">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
             <form action="" method="POST">
                 {% csrf_token %}
                 <h3>Login</h3>
                 <h5>Get access to your Orders, Wishlist and Recommendations</h5>
-                <input type="number" class="details" placeholder="Mobile no." name="number" required>
+                <input type="text" class="details" placeholder="Enter your username" name="username" required autocomplete="off">
                 <input type="password" class="details" placeholder="Password" name="password" required>
                 <div class="check">
                     <input type="checkbox">
